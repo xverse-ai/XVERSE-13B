@@ -101,7 +101,7 @@ The XVERSE-13B model can be loaded for inference using the following code:
 >>> model = model.eval()
 >>> inputs = tokenizer('北京的景点：故宫、天坛、万里长城等。\n深圳的景点：', return_tensors='pt').input_ids
 >>> inputs = inputs.cuda()
->>> generated_ids = model.generate(inputs, max_new_tokens=64, eos_token_id=tokenizer.eos_token_id)
+>>> generated_ids = model.generate(inputs, max_new_tokens=64, eos_token_id=tokenizer.eos_token_id, repetition_penalty=1.1)
 >>> print(tokenizer.batch_decode(generated_ids, skip_special_tokens=True))
 ```
 
