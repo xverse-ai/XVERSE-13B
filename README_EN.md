@@ -11,7 +11,8 @@
 <h4 align="left">
     <p>
         <b>English</b> |
-        <a href="README.md">中文</a>
+        <a href="README.md">中文</a> |
+        <a href="README_JA.md">日本語</a>
     <p>
 </h4>
 
