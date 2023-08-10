@@ -10,8 +10,8 @@
 
 <h4 align="left">
     <p>
-        <a href="README_EN.md">English</a> |
         <a href="README.md">中文</a> |
+        <a href="README_EN.md">English</a> |
         <b>日本語</b>
     <p>
 </h4>
