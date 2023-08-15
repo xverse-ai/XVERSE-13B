@@ -96,9 +96,10 @@ pip install -r requirements.txt
 XVERSE-13B モデルは、以下のコードを用いて推論のためにロードすることができる:
 
 ```python
+>>> import torch
 >>> from transformers import AutoTokenizer, AutoModelForCausalLM
 >>> tokenizer = AutoTokenizer.from_pretrained("xverse/XVERSE-13B")
->>> model = AutoModelForCausalLM.from_pretrained("xverse/XVERSE-13B", trust_remote_code=True).half().cuda()
+>>> model = AutoModelForCausalLM.from_pretrained("xverse/XVERSE-13B", trust_remote_code=True, torch_dtype=torch.float16, device_map='auto')
 >>> model = model.eval()
 >>> inputs = tokenizer('北京的景点：故宫、天坛、万里长城等。\n深圳的景点：', return_tensors='pt').input_ids
 >>> inputs = inputs.cuda()
