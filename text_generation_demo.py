@@ -10,8 +10,8 @@ tokenizer, model = None, None
 
 def init_model(args):
     global tokenizer, model
-    tokenizer = AutoTokenizer.from_pretrained(args.model_path, truncation_side="left", padding_side="left")
-    model = AutoModelForCausalLM.from_pretrained(args.tokenizer_path, trust_remote_code=True).half().cuda()
+    tokenizer = AutoTokenizer.from_pretrained(args.tokenizer_path, truncation_side="left", padding_side="left")
+    model = AutoModelForCausalLM.from_pretrained(args.model_path, trust_remote_code=True, torch_dtype=torch.float16, device_map='auto')
     model = model.eval()
 
 
