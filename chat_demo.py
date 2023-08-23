@@ -6,6 +6,16 @@ from datetime import datetime
 from transformers import AutoModelForCausalLM, AutoTokenizer,GenerationConfig
 
 tokenizer, model = None, None
+css = """
+.message.user{
+border-color: #BFB0FA !important;
+background: #EEEAFF !important;
+}
+.message.bot{
+border-color: #CDCDCD !important;
+background: #F8F8F8 !important;
+}
+"""
 
 def init_model(args):
     global tokenizer, model
@@ -57,13 +67,13 @@ if __name__ == "__main__":
     init_model(args)
 
     # 构建demo应用
-    with gr.Blocks() as demo:
+    with gr.Blocks(css=css) as demo:
         gr.Markdown("# <center>{}</center>".format(args.title))
-        chatbot = gr.Chatbot(label="Chat history", height=650).style(color_map=("green", "pink"))
+        chatbot = gr.Chatbot(label="Chat history", height=650)
         state = gr.State([])
 
         with gr.Row():
-            text_box = gr.Textbox(label="Message", show_label=False, placeholder="Enter message and press enter").style(container=False)
+            text_box = gr.Textbox(label="Message", show_label=False, placeholder="Enter message and press enter")
 
         with gr.Row():
             submit_btn = gr.Button(value="Send", variant="secondary")
