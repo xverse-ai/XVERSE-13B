@@ -19,7 +19,8 @@
 </h4>
 
 ## Update Information
-**[2023/08/22]** Released the aligned instruct-finetuned model [XVERSE-13B-Chat](https://huggingface.co/xverse/XVERSE-13B-Chat).
+**[2023/09/26]** Released the [XVERSE-7B](https://github.com/xverse-ai/XVERSE-7B) base model and [XVERSE-7B-Chat](https://github.com/xverse-ai/XVERSE-7B) instruct-finetuned model with 7B size, which support deployment and operation on a single consumer-grade graphics card while maintaining high performance, full open source, and free for commercial use.   
+**[2023/08/22]** Released the aligned instruct-finetuned model XVERSE-13B-Chat.
 
 ## Model Introduction
 

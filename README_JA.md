@@ -19,7 +19,8 @@
 </h4>
 
 ## アップデート情報
-**[2023/08/22]** 微調整して公開する [XVERSE-13B-Chat](https://huggingface.co/xverse/XVERSE-13B-Chat) 対話モデル。
+**[2023/09/26]** サイズ7Bの [XVERSE-7B](https://github.com/xverse-ai/XVERSE-7B) ベースモデルおよび [XVERSE-7B-Chat](https://github.com/xverse-ai/XVERSE-7B) 会話モデルをリリースします。これらのモデルは、シングルのコンシューマーグレードグラフィックカードでのデプロイメントと運用をサポートし、高性能を維持します。完全にオープンソースで、商用利用無料です。    
+**[2023/08/22]** 微調整して公開する XVERSE-13B-Chat 対話モデル。
 
 ## モデル紹介
 

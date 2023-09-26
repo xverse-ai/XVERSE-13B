@@ -19,7 +19,8 @@
 </h4>
 
 ## 更新信息
-**[2023/08/22]** 发布经过指令精调的 [XVERSE-13B-Chat](https://huggingface.co/xverse/XVERSE-13B-Chat) 对话模型。
+**[2023/09/26]** 发布 7B 尺寸的 [XVERSE-7B](https://github.com/xverse-ai/XVERSE-7B) 底座模型和 [XVERSE-7B-Chat](https://github.com/xverse-ai/XVERSE-7B) 对话模型，支持在单张消费级显卡部署运行，并保持高性能、全开源、免费可商用。   
+**[2023/08/22]** 发布经过指令精调的 XVERSE-13B-Chat 对话模型。
 
 ## 模型介绍
 
