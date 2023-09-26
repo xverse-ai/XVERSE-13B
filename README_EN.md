@@ -5,7 +5,9 @@
 </div>
 
 <p align="center">
-        <a href="https://huggingface.co/xverse/XVERSE-13B">🤗 HuggingFace</a>&nbsp ｜ &nbsp<a href="resources/wechat.png">💬 WeChat</a>
+        <a href="https://huggingface.co/xverse/XVERSE-13B">🤗 XVERSE-13B</a>&nbsp｜&nbsp<a href="https://huggingface.co/xverse/XVERSE-13B-Chat">🤗 XVERSE-13B-Chat</a>&nbsp｜&nbsp
+        <a href="https://modelscope.cn/organization/xverse" rel="nofollow"><img src="resources/modelscope.png" width="20px" style="max-width: 100%;"> ModelScope</a>&nbsp｜&nbsp
+        <a href="resources/wechat.png">💬 WeChat</a>
 </p>
 
 <h4 align="left">
