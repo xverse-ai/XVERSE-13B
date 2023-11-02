@@ -5,8 +5,8 @@
 </div>
 
 <p align="center">
-        <a href="https://huggingface.co/xverse/XVERSE-13B">🤗 XVERSE-13B</a>&nbsp｜&nbsp<a href="https://huggingface.co/xverse/XVERSE-13B-Chat">🤗 XVERSE-13B-Chat</a>&nbsp｜&nbsp
-        <a href="https://modelscope.cn/organization/xverse" rel="nofollow"><img src="resources/modelscope.png" width="20px" style="max-width: 100%;"> ModelScope</a>&nbsp｜&nbsp
+        <a href="https://huggingface.co/xverse">🤗 Hugging Face</a>&nbsp｜
+        <a href="https://modelscope.cn/organization/xverse" rel="nofollow"><img src="resources/modelscope.png" width="20px" style="max-width: 100%;"> ModelScope</a>&nbsp｜
         <a href="resources/wechat.png">💬 WeChat</a>
 </p>
 
@@ -19,8 +19,10 @@
 </h4>
 
 ## アップデート情報
+**[2023/11/06]** 新しいバージョンの**XVERSE-13B-2**ベースモデルと**XVERSE-13B-Chat-2**対話モデルがリリースされました。元のバージョンと比べて、新しいモデルはより充実したトレーニングを受けています（1.4Tから3.2Tに増加）。その結果、さまざまな能力が大幅に向上しました。また、Function Callの機能が新たに追加されています。   
 **[2023/09/26]** サイズ7Bの [XVERSE-7B](https://github.com/xverse-ai/XVERSE-7B) ベースモデルおよび [XVERSE-7B-Chat](https://github.com/xverse-ai/XVERSE-7B) 会話モデルをリリースします。これらのモデルは、シングルのコンシューマーグレードグラフィックカードでのデプロイメントと運用をサポートし、高性能を維持します。完全にオープンソースで、商用利用無料です。    
 **[2023/08/22]** 微調整して公開する XVERSE-13B-Chat 対話モデル。
+**[2023/08/07]** XVERSE-13B ベースモデルをリリースしました。
 
 ## モデル紹介
 
@@ -33,73 +35,26 @@
 
 ## モデル評価
 
-モデルの様々な能力を検証するために、[MMLU](https://arxiv.org/abs/2009.03300)(英語)、[C-Eval](https://cevalbenchmark.com/)(中国語)、[AGIEval](https://arxiv.org/abs/2304.06364)(中国語・英語)、[GAOKAO-Bench](https://github.com/OpenLMLab/GAOKAO-Bench)(中国語・英語)、[GAOKAO-English](https://github.com/ExpressAI/AI-Gaokao)(英語)など、複数の分野にまたがる総合的な能力ベンチマークを選び、評価結果は以下の通りです:
+モデルの性能を総合的に評価するために、C-Eval、CMMLU、Gaokao-Bench、MMLU、GAOKAO-English、AGIEval、RACE-M、CommonSenseQA、PIQA、GSM8K、HumanEvalを含む一連の標準データセットで幅広いテストを行いました。これらの評価は、中国語の質問応答、英語の質問応答、言語理解、常識問題、論理的推論、数学問題解決、およびコーディング能力を含むモデルの複数の能力をカバーしています。評価結果は以下の通りです：
 
-|        モデル         |       Type       |       MMLU       |      C-Eval      | AGIEval<sup>1</sup> | GAOKAO-Bench<sup>1</sup> | GAOKAO-English<sup>1</sup> |
-| :------------------------: | :--------------: | :--------------: | :--------------: | :-----------------: | :----------------------: | :------------------------: |
-|        Baichuan-13B       |      pretrained       | 51.6<sup>2</sup> | 53.6<sup>3</sup> |        40.5         |           45.9           |            56.9            |
-|     Baichuan-13B-Chat     |     fine-tuned        | 52.1<sup>2</sup> | 51.5<sup>2</sup> |        34.6         |           46.7           |            63.8            |
-|    Chinese-Alpaca-2-13B   |     fine-tuned        |       53.2       |       41.3       |        36.6         |           38.4           |            65.1            |
-|        Llama-1-13B        |     pretrained        | 46.9<sup>4</sup> |       28.8       |        27.3         |           26.4           |            38.1            |
-|        Llama-2-13B        |     pretrained        | 54.8<sup>4</sup> |       35.6       |        33.4         |           35.4           |            60.6            |
-|  moss-moon-003-base (16B) |     pretrained        |       24.7       | 33.1<sup>3</sup> |        26.8         |           28.5           |            34.7            |
-|  moss-moon-003-sft (16B)  |     fine-tuned    |       25.5       |       33.6       |        27.6         |           28.8           |            29.2            |
-|       OpenLLaMA-13B       |     pretrained    |       42.4       |       24.7       |        24.0         |           25.6           |            33.3            |
-|          OPT-13B          |     pretrained    |       25.2       |       25.0       |        24.2         |           24.4           |            31.1            |
-|         Pythia-12B        |     pretrained    |       25.1       |       26.2       |        25.3         |           25.3           |            26.8            |
-|      Vicuna-13B-v1.5      |     fine-tuned    |       53.5       |       27.9       |        29.7         |           31.6           |            52.9            |
-| Ziya-LLaMA-13B-Pretrain-v1|     pretrained    |       43.9       |       30.2       |        27.2         |           26.4           |            37.6            |
-|    Ziya-LLaMA-13B-v1.1    |     fine-tuned    |       50.6       |       29.3       |        23.6         |           26.7           |            27.3            |
-|       **XVERSE-13B**      |     pretrained    |     **55.1**     |     **54.7**     |      **41.4**       |         **53.9**         |          **66.5**          |
-|    **XVERSE-13B-Chat**    |     fine-tuned    |     **60.2**     |     **53.1**     |      **48.3**       |         **50.7**         |          **80.6**          |
-
+|   能力次元    |        データセット        |        | XVERSE-13B-2 | XVERSE-13B | Baichuan2-13B | Llama1-13B | Llama2-13B |
+| :-----------: | :------------------------: | :----: | :----------: | :--------: | :-----------: | :--------: | :--------: |
+|   中国語QA    |           C-Eval           | 5-shot |     63.5     |    54.7    |     58.1      |    28.8    |    35.6    |
+|               |           CMMLU            | 5-shot |     66.2     |    59.1    |     62.0      |    31.5    |    38.4    |
+|               |  Gaokao-Bench<sup>1</sup>  | 5-shot |     67.5     |    53.9    |     54.3      |    26.4    |    35.4    |
+|    英語QA     |            MMLU            | 5-shot |     61.2     |    55.1    |     59.2      |    46.9    |    54.8    |
+|               | GAOKAO-English<sup>1</sup> | 5-shot |     73.7     |    66.5    |     67.7      |    38.1    |    60.6    |
+| 中国語&英語QA |    AGIEval<sup>1</sup>     | 5-shot |     54.5     |    41.4    |     48.2      |    27.3    |    33.4    |
+|   言語理解    |           RACE-M           | 0-shot |     84.6     |    74.2    |     68.9      |    61.6    |    63.0    |
+|    常識QA     |       CommonSenseQA        | 7-shot |     74.0     |    69.5    |     65.6      |    62.0    |    67.3    |
+|     推理      |            PIQA            | 0-shot |     80.8     |    79.0    |     78.5      |    80.1    |    80.5    |
+|     数学      |           GSM8K            | 4-shot |     54.9     |    18.4    |     52.7      |    17.8    |    28.7    |
+| コーディング  |         HumanEval          | 0-shot |     39.6     |    15.9    |     17.1      |    15.8    |    18.3    |
 
 > <sup>1: テストは単一解答の多肢選択問題のみで行われるため、穴埋め問題、自由形式問題、複数解答の多肢選択問題は除外される。</sup>   
-> <sup>2: [Baichuan-13B](https://github.com/baichuan-inc/Baichuan-13B) の結果を報告。</sup>   
-> <sup>3: [C-Eval](https://cevalbenchmark.com/) の結果を報告する。</sup>   
-> <sup>4: [Llama 2](https://arxiv.org/abs/2307.09288) の結果を報告。</sup>
->
-> MMLU は、著者らが提供する[評価ツール](https://github.com/hendrycks/test)を採用し、C-Eval、AGIEval、GAOKAO-Bench、GAOKAO-English は MMLU と同じで、テストサンプルの構成は **5-shot** で統一する。
 
-### MMLU カテゴリ結果
-
-|         モデル          |         Type          | Average  |   STEM   | Social Science | Humanities |  Others  |
-| :------------------------: | :------------------------: | :------: | :------: | :------------: | :--------: | :------: |
-|        Baichuan-13B        |   pretrained   |   51.6   |   41.6   |      60.9      |    47.4    |   58.5   |
-|     Baichuan-13B-Chat      |   fine-tuned   |   52.1   |   40.9   |      60.9      |    48.8    |   59.0   |
-|    Chinese-Alpaca-2-13B    |   fine-tuned   |   53.2   |   41.8   |      61.2      |    51.3    |   59.2   |
-|        Llama-1-13B         |   pretrained   |   46.9   |   35.8   |      53.8      |    45.0    |   53.3   |
-|        Llama-2-13B         |   pretrained   |   54.8   |   44.1   |      62.6      |    52.8    |   61.1   |
-|  moss-moon-003-base (16B)  |   pretrained   |   24.7   |   23.0   |      24.0      |    25.2    |   26.3   |
-|  moss-moon-003-sft (16B)   |   fine-tuned   |   25.5   |   25.9   |      23.8      |    27.1    |   24.4   |
-|       OpenLLaMA-13B        |   pretrained   |   42.4   |   34.7   |      48.6      |    40.0    |   47.1   |
-|          OPT-13B           |   pretrained   |   25.2   |   23.9   |      24.1      |    25.9    |   26.3   |
-|         Pythia-12B         |   pretrained   |   25.1   |   24.8   |      23.0      |    26.1    |   26.0   |
-|      Vicuna-13B-v1.5       |   fine-tuned   |   53.5   |   42.3   |      61.3      |    50.3    |   60.9   |
-| Ziya-LLaMA-13B-Pretrain-v1 |   pretrained   |   43.9   |   36.3   |      48.8      |    41.1    |   50.3   |
-|    Ziya-LLaMA-13B-v1.1     |   fine-tuned   |   50.6   |   40.7   |      57.8      |    48.1    |   56.7   |
-|       **XVERSE-13B**       |   pretrained   | **55.1** | **44.5** |    **64.4**    |  **50.5**  | **62.9** |
-|    **XVERSE-13B-Chat**     |   fine-tuned   | **60.2** | **48.1** |    **67.7**    |  **56.4**  | **68.0** |
-
-### C-Eval カテゴリ結果
-
-|         モデル          |         Type          | Average  |   STEM   | Social Science | Humanities |  Others  |
-| :------------------------: | :------------------------: | :------: | :------: | :------------: | :--------: | :------: |
-|        Baichuan-13B        |   pretrained  |   53.6   |   47.0   |      66.8      |    57.3    |   49.8   |
-|     Baichuan-13B-Chat      |   fine-tuned  |   51.5   |   43.7   |      64.6      |    56.2    |   49.2   |
-|    Chinese-Alpaca-2-13B    |   fine-tuned  |   41.3   |   37.8   |      51.1      |    42.4    |   37.8   |
-|        Llama-1-13B         |   pretrained  |   28.8   |   27.5   |      33.9      |    27.7    |   27.7   |
-|        Llama-2-13B         |   pretrained  |   35.6   |   34.5   |      39.8      |    36.2    |   33.2   |
-|  moss-moon-003-base (16B)  |   pretrained  |   33.1   |   31.6   |      37.0      |    33.4    |   32.1   |
-|  moss-moon-003-sft (16B)   |   fine-tuned  |   33.6   |   31.4   |      38.6      |    33.8    |   32.9   |
-|       OpenLLaMA-13B        |   pretrained  |   24.7   |   25.5   |      23.5      |    24.2    |   24.7   |
-|          OPT-13B           |   pretrained  |   25.0   |   24.4   |      24.6      |    25.9    |   25.4   |
-|         Pythia-12B         |   pretrained  |   26.2   |   26.8   |      25.1      |    26.7    |   25.4   |
-|      Vicuna-13B-v1.5       |   fine-tuned  |   27.9   |   25.4   |      33.2      |    29.3    |   26.2   |
-| Ziya-LLaMA-13B-Pretrain-v1 |   pretrained  |   30.2   |   27.8   |      34.3      |    32.0    |   29.0   |
-|    Ziya-LLaMA-13B-v1.1     |   fine-tuned  |   29.3   |   27.5   |      32.8      |    29.7    |   29.0   |
-|       **XVERSE-13B**       |   pretrained  | **54.7** | **45.6** |    **66.2**    |  **58.3**  | **56.9** |
-|    **XVERSE-13B-Chat**     |   fine-tuned  | **53.1** | **44.5** |    **65.3**    |  **56.5**  | **54.3** |
+上記すべての比較モデルについて、まずは公式に公開された結果を報告します。公式の結果が不足している場合には、[OpenCompass リーダーボード](https://opencompass.org.cn/leaderboard-llm)の報告結果を参照しています。それ以外の結果は、当社の評価プロセスによって得られたデータから派生しています。   
+MMLUについては、著者が提供する[評価ツール](https://github.com/hendrycks/test)を使用します。C-Eval、AGIEval、GAOKAO-Bench、GAOKAO-Englishの評価方法はMMLUと同様ですが、その他の評価データセットについては[OpenCompass](https://github.com/open-compass/OpenCompass/)評価フレームワークを用いて評価を行います。
 
 ## 説明書
 
@@ -337,6 +292,48 @@ XVERSE-13B-Chat:
 ```
 </details>
 
+<details><summary><b>Function Call</b></summary>
+
+```
+用户:
+你是个大语言模型，有多种能力，可以通过插件集成api来回复用户的问题，还能解答用户使用模型遇到的问题和模型知识相关问答。目前支持的插件信息如下，请自行判断是否需要调用插件来解决当前用户问题。若需要调用插件，则需要将插件调用请求按照json格式给出，必须包含api_name、url、parameters字段，并在其前后使用<|startofthink|>和<|endofthink|>作为标志。然后你需要根据插件API调用结果生成合理的答复；若无需调用插件，则直接给出对应回复即可：
+1. {"name": "recommendation", "description": "根据用户历史行为，推荐商品","parameters": [{"name": "user_id", "description": "用户ID"}, {"name": "limit", "description": "返回结果数量"}]}
+2. {"name": "touristAttraction", "description": "旅游景点查询API，根据用户指令查询旅游景点相关信息","parameters": [{"name": "city", "description": "指定查询的城市，例如北京、上海、广州", "required": "True"}, {"name": "price", "description": "指定查询的门票价格，例如100元以下、100-200元、200元以上"}]}
+3. {"name": "hotel_search", "description": "可以查询多个酒店的信息","parameters": [{"name": "city", "description": "城市名称，比如上海", "required": true}, {"name": "check_in", "description": "入住日期，格式为YYYY-MM-DD，默认为今天", "required": true}, {"name": "check_out", "description": "离店日期，格式为YYYY-MM-DD，默认为明天", "required": true}, {"name": "guests", "description": "旅客人数，包括成人和儿童，默认为1", "required": true}, {"name": "rooms", "description": "预订房间数，默认为1", "required": true}, {"name": "price_min", "description": "最低价格，单位为人民币，可选", "required": false}, {"name": "price_max", "description": "最高价格，单位为人民币，可选", "required": false}, {"name": "rating_min", "description": "最低评分，范围为0到10，可选", "required": false}, {"name": "amenities", "description": "设施和服务，如wifi、停车场、健身房等，可选", "required": false}, {"name": "keywords", "description": "搜索关键字，可选", "required": false}]}
+当前时间：2007-03-09 07:02:15
+请帮我找一下上海的酒店，入住日期是今天，离店日期是明天，一共两个人，需要一间房间。
+
+XVERSE-13B-Chat:
+好的，请问您需要查询哪个价格区间和评分区间的酒店呢？
+
+用户:
+价格在300-500之间，评分不低于8分
+
+XVERSE-13B-Chat:
+好的，还有其他特殊需求吗？比如设施和服务方面的要求？
+
+用户:
+有免费停车场就更好了。
+
+XVERSE-13B-Chat:
+好的，我会为您查询符合条件的酒店。请稍等片刻
+<|startofthink|>```JSON
+{ 
+   "api_name": "hotel_search","parameters": {
+      "city": "上海",
+      "check_in": "2007-03-09",
+      "check_out": "2007-03-10",
+      "guests": 2,
+      "rooms": 1,
+      "price_min": 300,
+      "price_max": 500,
+      "rating_min": 8,
+      "amenities": "停车场"
+   }
+}```<|endofthink|>
+```
+</details>
+
 ## モデルの量子化
 INT8 および INT4 タイプの量子化をサポートしているため、モデルの読み込みに必要なメモリを大幅に削減できます。
 
@@ -430,5 +427,5 @@ XVERSE-13B を利用して、有害な情報を作成・流布したり、公共
 
 このリポジトリにあるソースコードの使用は、[Apache-2.0](LICENSE) オープンソースライセンスに従う必要があり、XVERSE-13B のモデル重量の使用は、[モデルライセンス契約](MODEL_LICENSE.pdf)に従う必要があります。
 
-XVERSE-13B のモデル分銅は、学術研究に対して**完全にオープン**であり、**自由な商用利用**をサポートしています。商用利用には、<opensource@xverse.cn> に電子メールを送って商用利用ライセンスを申請する必要があります。
+XVERSE-13B のモデル分銅は、学術研究に対して**完全にオープン**であり、**自由な商用利用**をサポートしています。営業ライセンスを申請するためには、[申請フォーム](https://chat.xverse.cn/home/business.html)にご記入ください。その他の質問や協力については、<opensource@xverse.cn>までご連絡ください。
 
