@@ -36,6 +36,7 @@
 **XVERSE-13B-2-Chat**为 **XVERSE-13B-2** 底座模型对齐后的版本。
 
 对齐阶段，不同能力类型数据的采样比例如下所示：
+
 <img src="resources/chat_train_data.png">
 
 ## 评测结果

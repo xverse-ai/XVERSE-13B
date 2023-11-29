@@ -36,7 +36,9 @@
 **XVERSE-13B-2-Chat** is the aligned version of model **XVERSE-13B-2**.
 
 In the alignment, the sampling ratio of data of different capability types is as follows:
-<img src="resources/chat_train_data.png">
+|         | Code | Math | Chat | Role-Play | Agent |   QA   | Text-Gen | Security | Logic | NLU |
+|:-------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
+| Ratio(%) |   21.2   |   18.6   |   12.4   |   11.3   |    9.8   |    6.8   |    5.4   |    5.1   |     4.8  |   4.6    |
 
 ## Model Evaluation
 
