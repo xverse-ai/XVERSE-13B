@@ -19,7 +19,7 @@
 </h4>
 
 ## Update Information
-**[2023/11/06]** The new versions of the **XVERSE-13B-2** base model and the **XVERSE-13B-2-Chat** model have been released. Compared to the original versions, the new models have undergone more extensive training (increasing from 1.4T to 3.2T), resulting in significant improvements in all capabilities, along with the addition of Function Call abilities.
+**[2023/11/06]** The new versions of the **XVERSE-13B-2** base model and the **XVERSE-13B-2-Chat** model have been released. Compared to the original versions, the new models have undergone more extensive training (increasing from 1.4T to 3.2T), resulting in significant improvements in all capabilities, along with the addition of Function Call abilities.  
 **[2023/09/26]** Released the [XVERSE-7B](https://github.com/xverse-ai/XVERSE-7B) base model and [XVERSE-7B-Chat](https://github.com/xverse-ai/XVERSE-7B) instruct-finetuned model with 7B size, which support deployment and operation on a single consumer-grade graphics card while maintaining high performance, full open source, and free for commercial use.   
 **[2023/08/22]** Released the aligned instruct-finetuned model XVERSE-13B-Chat.
 **[2023/08/07]* Released the XVERSE-13B base model.
