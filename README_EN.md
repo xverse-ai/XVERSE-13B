@@ -19,6 +19,7 @@
 </h4>
 
 ## Update Information
+**[2024/01/16]** Released the long-sequence model **XVERSE-13B-256K** . This model version supports a maximum window length of 256K, accommodating approximately 250,000 words for tasks such as literature summarization and report analysis.  
 **[2023/11/06]** The new versions of the **XVERSE-13B-2** base model and the **XVERSE-13B-2-Chat** model have been released. Compared to the original versions, the new models have undergone more extensive training (increasing from 1.4T to 3.2T), resulting in significant improvements in all capabilities, along with the addition of Function Call abilities.  
 **[2023/09/26]** Released the [XVERSE-7B](https://github.com/xverse-ai/XVERSE-7B) base model and [XVERSE-7B-Chat](https://github.com/xverse-ai/XVERSE-7B) instruct-finetuned model with 7B size, which support deployment and operation on a single consumer-grade graphics card while maintaining high performance, full open source, and free for commercial use.   
 **[2023/08/22]** Released the aligned instruct-finetuned model XVERSE-13B-Chat.
@@ -40,6 +41,9 @@ In the alignment, the sampling ratio of data of different capability types is as
 |:-------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
 | Ratio(%) |   21.2   |   18.6   |   12.4   |   11.3   |    9.8   |    6.8   |    5.4   |    5.1   |     4.8  |   4.6    |
 
+**XVERSE-13B-256K** is the long-sequence version of model [**XVERSE-13B-2**](https://huggingface.co/xverse/XVERSE-13B),
+updated by **Continual-Pre-Training** based on **ABF** and **supervised fine-tuning** based on **NTK**.
+
 ## Model Evaluation
 
 To comprehensively assess the performance of the model, we conducted extensive testing across a range of standard datasets, including C-Eval, CMMLU, Gaokao-Bench, MMLU, GAOKAO-English, AGIEval, RACE-M, CommonSenseQA, PIQA, GSM8K and HumanEval. These evaluations spanned multiple capabilities of the model, specifically including Chinese question answering, English question answering, language comprehension, common sense questioning, logical reasoning, mathematical problem-solving, and coding ability. The results of the evaluations are as follows:
@@ -60,8 +64,30 @@ To comprehensively assess the performance of the model, we conducted extensive t
 
 > <sup>1: Tests are conducted only on single-answer multiple-choice questions, thus excluding fill-in-the-blanks, open-ended questions, and multiple-answer multiple-choice questions.</sup>   
 
+###  XVERSE-13B-256K
+
 For all the comparison models mentioned above, we prioritize the disclosure of their officially published results. In the absence of official data, we refer to the reported outcomes from [OpenCompass Leaderboard](https://opencompass.org.cn/leaderboard-llm). Results not covered by the aforementioned sources are derived from our own evaluation pipline.   
 For MMLU, we adopt the [evaluation tools](https://github.com/hendrycks/test) provided by the authors, C-Eval, AGIEval, GAOKAO-Bench, GAOKAO-English are the same as MMLU. For the remaining evaluation datasets, the [OpenCompass](https://github.com/open-compass/OpenCompass/) is employed for evaluation.
+
+
+To assess the performance of long sequences, we employed the LongBench dataset. [LongBench](https://github.com/THUDM/LongBench) stands as the inaugural multi-task, bilingual (English-Chinese), evaluation benchmark specifically designed to gauge the long-text comprehension capabilities of large language models. Comprising six major categories and twenty-one distinct tasks, LongBench encompasses critical long-text application scenarios such as single-document QA, multi-document QA, summarization, few-shot tasks, synthetic tasks, and code completion. The dataset consists of 14 English tasks, 5 Chinese tasks, and 2 code tasks, with the majority of tasks having an average length ranging from 5,000 to 15,000 tokens, totaling 4,750 test instances. The evaluation results are presented below:
+
+
+|  Capability Dimension  |  Dataset |  XVERSE-13B-256K | GPT-3.5-Turbo-16K | Yi-6B-200K | LongChat-7B-16K | Llama2-7B-Chat-4K | 
+| :--------: | :-------------------: | :----: | :----------: | :--------: | :-----------: | :--------: |
+|  multi-document QA  |      HotpotQA         |     58.3     |    51.6    |     48.3      |    22.4    |    24.3    |
+|                     |      DuReader         |     28.9     |    28.7    |     14.2      |    19.1    |    1.9     |
+|  single-document QA |      NarrativeQA      |     24.1     |    23.6    |     14.5      |    21.6    |    19.1    |
+|                     |       Qasper          |     30.2     |    43.3    |     21.6      |    21.6    |    19.6    |
+|    summarization    |      VCSUM            |     11.3     |    16.0    |      8.2      |    14.0    |    0.2     |
+|    Few shot         |      TREC             |     72.0     |    68.0    |     71.0      |    61.5    |    60.5    |
+|                     |      LSHT             |     35.0     |    29.2    |     38.0      |    20.8    |    19.8    |
+|  synthetic tasks    |  PassageRetrieval-en  |     63.0     |    71.0    |     6.0       |    24.0    |    9.2     |
+|                     |  PassageRetrieval-zh  |     44.0     |    77.5    |     7.9       |    4.8     |    0.5     |
+|   code completion   |  RepoBench-P          |     55.6     |    53.6    |     61.5      |    54.7    |    42.4    |
+
+ 
+For all the comparison models mentioned above, we prioritize the disclosure of their officially published results. In the absence of official data, we refer to the results derived from our own evaluation pipline. 
 
 ## Usage
 

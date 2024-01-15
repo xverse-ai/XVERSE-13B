@@ -19,6 +19,7 @@
 </h4>
 
 ## 更新信息
+**[2024/01/16]** 发布长序列对话模型**XVERSE-13B-256K** ，该版本模型最大支持 256K 的上下文窗口长度，约 25w 字的输入内容，可以协助进行文献总结、报告分析等任务。  
 **[2023/11/06]** 发布新版本的 **XVERSE-13B-2** 底座模型和 **XVERSE-13B-2-Chat** 对话模型，相较于原始版本，新版本的模型训练更加充分（从 1.4T 增加到 3.2T），各方面的能力均得到大幅提升，同时新增工具调用能力。  
 **[2023/09/26]** 发布 7B 尺寸的 [XVERSE-7B](https://github.com/xverse-ai/XVERSE-7B) 底座模型和 [XVERSE-7B-Chat](https://github.com/xverse-ai/XVERSE-7B) 对话模型，支持在单张消费级显卡部署运行，并保持高性能、全开源、免费可商用。  
 **[2023/08/22]** 发布经过指令精调的 XVERSE-13B-Chat 对话模型。   
@@ -38,6 +39,8 @@
 对齐阶段，不同能力类型数据的采样比例如下所示：
 
 <img src="resources/chat_train_data.png">
+
+**XVERSE-13B-256K**是[**XVERSE-13B-2**](https://huggingface.co/xverse/XVERSE-13B)模型经过ABF+继续预训练、NTK+SFT微调后的版本。
 
 ## 评测结果
 
@@ -61,6 +64,26 @@
 
 对于上述所有比较模型，我们优先汇报其官方公布的结果。在缺少官方结果的情况下，我们采用了 [OpenCompass 榜单](https://opencompass.org.cn/leaderboard-llm)的报告结果。其他结果则来自于我们自行执行的评估流程所获得的数据。   
 对于 MMLU ，我们采用作者提供的[评测工具](https://github.com/hendrycks/test)，C-Eval、AGIEval、GAOKAO-Bench、GAOKAO-English 与 MMLU 的评测方式相同，其余评测数据集使用 [OpenCompass 评估框架](https://github.com/open-compass/OpenCompass/)进行评估。
+
+### XVERSE-13B-256K
+
+为了验证长序列的效果，这里我们使用了LongBench数据集。[LongBench](https://github.com/THUDM/LongBench)是第一个多任务、中英双语、针对大语言模型长文本理解能力的评测基准。LongBench由六大类、二十一个不同的任务组成，覆盖了单文档问答、多文档问答、摘要、Few shot任务、合成任务和代码补全等关键的长文本应用场景。LongBench包含14个英文任务、5个中文任务和2个代码任务，多数任务的平均长度在5k-15k之间，共包含4750条测试数据。评估结果如下：
+
+
+|  能力维度  |  数据集 |  XVERSE-13B-256K | GPT-3.5-Turbo-16K | Yi-6B-200K | LongChat-7B-16K | Llama2-7B-Chat-4K | 
+| :--------: | :-------------------: | :----: | :----------: | :--------: | :-----------: | :--------: |
+|  多文档问答  |      HotpotQA         |     58.3     |    51.6    |     48.3      |    22.4    |    24.3    |
+|             |      DuReader         |     28.9     |    28.7    |     14.2       |    19.1    |    1.9    |
+|  单文档问答  |      NarrativeQA      |    24.1      |    23.6    |     14.5      |    21.6    |    19.1    |
+|             |       Qasper          |     30.2     |    43.3    |     21.6      |    21.6    |    19.6    |
+|    摘要     |      VCSUM            |     11.3     |    16.0    |      8.2       |    14.0   |    0.2     |
+|  Few shot   |      TREC             |     72.0     |    68.0    |     71.0      |    61.5    |    60.5    |
+|             |      LSHT             |     35.0     |    29.2    |     38.0      |    20.8    |    19.8    |
+|  合成任务    |  PassageRetrieval-en |     63.0     |    71.0    |     6.0       |    24.0    |    9.2     |
+|             |  PassageRetrieval-zh |     44.0     |    77.5    |     7.9       |    4.8     |    0.5     |
+|      代码   |  RepoBench-P          |    55.6     |    53.6    |     61.5      |    54.7    |    42.4    |
+
+对于上述所有比较模型，我们优先汇报其官方公布的结果。在缺少官方结果的情况下，我们采用自行执行的评估流程所获得的数据。   
 
 ## 使用方法
 
