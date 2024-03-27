@@ -19,7 +19,7 @@
 </h4>
 
 ## Update Information
-- **[2024/03/25]** Released the XVERSE-13B-2-Chat GGUF and GPTQ quantification models, supporting llama.cpp and vLLM inference of the xverse-13b model on MacOS/Linux/Windows systems.
+- **[2024/03/25]** Released the XVERSE-13B-2-Chat GGUF and GPTQ quantification models, supporting llama.cpp and vLLM inference of the XVERSE-13B-2-Chat model on MacOS/Linux/Windows systems.
 - **[2024/01/16]** Released the long-sequence model **XVERSE-13B-256K** . This model version supports a maximum window length of 256K, accommodating approximately 250,000 words for tasks such as literature summarization and report analysis.
 - **[2023/11/06]** The new versions of the **XVERSE-13B-2** base model and the **XVERSE-13B-2-Chat** model have been released. Compared to the original versions, the new models have undergone more extensive training (increasing from 1.4T to 3.2T), resulting in significant improvements in all capabilities, along with the addition of Function Call abilities.
 - **[2023/09/26]** Released the [XVERSE-7B](https://github.com/xverse-ai/XVERSE-7B) base model and [XVERSE-7B-Chat](https://github.com/xverse-ai/XVERSE-7B) instruct-finetuned model with 7B size, which support deployment and operation on a single consumer-grade graphics card while maintaining high performance, full open source, and free for commercial use.

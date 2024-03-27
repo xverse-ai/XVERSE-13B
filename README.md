@@ -19,7 +19,7 @@
 </h4>
 
 ## 更新信息
-- **[2024/03/25]** 发布XVERSE-13B-2-Chat GGUF、GPTQ量化模型，支持llama.cpp、vLLM在MacOS/Linux/Windows系统上推理xverse-13b模型。
+- **[2024/03/25]** 发布XVERSE-13B-2-Chat GGUF、GPTQ量化模型，支持llama.cpp、vLLM在MacOS/Linux/Windows系统上推理XVERSE-13B-2-Chat模型。
 - **[2024/01/16]** 发布长序列对话模型**XVERSE-13B-256K** ，该版本模型最大支持 256K 的上下文窗口长度，约 25w 字的输入内容，可以协助进行文献总结、报告分析等任务。
 - **[2023/11/06]** 发布新版本的 **XVERSE-13B-2** 底座模型和 **XVERSE-13B-2-Chat** 对话模型，相较于原始版本，新版本的模型训练更加充分（从 1.4T 增加到 3.2T），各方面的能力均得到大幅提升，同时新增工具调用能力。
 - **[2023/09/26]** 发布 7B 尺寸的 [XVERSE-7B](https://github.com/xverse-ai/XVERSE-7B) 底座模型和 [XVERSE-7B-Chat](https://github.com/xverse-ai/XVERSE-7B) 对话模型，支持在单张消费级显卡部署运行，并保持高性能、全开源、免费可商用。
